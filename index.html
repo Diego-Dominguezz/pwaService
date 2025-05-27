@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Una Progressive Web App básica de ejemplo">
+    <meta name="theme-color" content="#667eea">
+    <title>Mi Aplicación PWA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="/icons/web-app-manifest-192x192.png" type="image/png">
+</head>
+
+<body>
+    <h1>Mi Aplicación PWA</h1>
+    <p>Esta es una Progressive Web App (PWA) básica.</p>
+    <p>Abre la consola para ver el registro del Service Worker.</p>
+    <p>🚀 Esta aplicación puede instalarse en tu dispositivo!</p>
+
+    <button id="installBtn"
+        style="display: none; padding: 12px 24px; background: #fff; color: #667eea; border: 2px solid #667eea; border-radius: 8px; font-size: 16px; cursor: pointer; margin-top: 20px;">
+        📱 Instalar Aplicación
+    </button>
+    <script>
+        // Registro del Service Worker usando el nuevo código
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => {
+                        console.log('✅ Service Worker registrado', reg);
+                    })
+                    .catch(err => {
+                        console.error('❌ Fallo al registrar SW:', err);
+                    });
+            });
+        }
+
+        // Funcionalidad de instalación
+        let deferredPrompt;
+        const installBtn = document.getElementById('installBtn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBtn.style.display = 'block';
+        });
+
+        installBtn.addEventListener('click', (e) => {
+            installBtn.style.display = 'none';
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('Usuario aceptó la instalación');
+                } else {
+                    console.log('Usuario rechazó la instalación');
+                }
+                deferredPrompt = null;
+            });
+        });
+    </script>
+</body>
+
+</html>

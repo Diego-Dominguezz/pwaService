@@ -1,0 +1,14 @@
+{
+    "liveServer.settings.port": 5500,
+    "liveServer.settings.host": "localhost",
+    "liveServer.settings.root": "/",
+    "liveServer.settings.CustomBrowser": null,
+    "liveServer.settings.donotShowInfoMsg": false,
+    "liveServer.settings.donotVerifyTags": true,
+    "liveServer.settings.https": {
+        "enable": true,
+        "cert": "C:\\Users\\diego\\LocalDocuments\\ut\\mariano\\practica2pwa\\certificates\\server.crt",
+        "key": "C:\\Users\\diego\\LocalDocuments\\ut\\mariano\\practica2pwa\\certificates\\server.key",
+        "passphrase": ""
+    }
+}
