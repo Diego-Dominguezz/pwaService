@@ -1,11 +1,12 @@
+// Versión para repositorio NO principal (con nombre de repo)
 const CACHE_NAME = 'mi-app-cache-v1';
 const urlsToCache = [
-    '/pwaService/',
-    '/pwaService/index.html',
-    '/pwaService/style.css',
-    '/pwaService/manifest.json',
-    '/pwaService/icons/web-app-manifest-192x192.png',
-    '/pwaService/icons/web-app-manifest-512x512.png'
+    '/practica2pwa/',
+    '/practica2pwa/index.html',
+    '/practica2pwa/style.css',
+    '/practica2pwa/manifest.json',
+    '/practica2pwa/icons/web-app-manifest-192x192.png',
+    '/practica2pwa/icons/web-app-manifest-512x512.png'
 ];
 
 self.addEventListener('install', event => {
