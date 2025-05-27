@@ -1,9 +1,8 @@
 const CACHE_NAME = 'mi-app-cache-v1';
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/icons/web-app-manifest-192x192.png',
-    '/icons/web-app-manifest-512x512.png'
+    'index.html',
+    'icons/web-app-manifest-192x192.png',
+    'icons/web-app-manifest-512x512.png'
 ];
 
 self.addEventListener('install', event => {
